@@ -6,9 +6,9 @@ export function IntroAnimation() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (sessionStorage.getItem("aurelia-intro-played")) return;
+    if (sessionStorage.getItem("osama-intro-played")) return;
     setShow(true);
-    sessionStorage.setItem("aurelia-intro-played", "1");
+    sessionStorage.setItem("osama-intro-played", "1");
     const t = setTimeout(() => setShow(false), 3400);
     return () => clearTimeout(t);
   }, []);
