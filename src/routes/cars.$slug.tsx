@@ -61,8 +61,9 @@ function CarDetail() {
   const price = Number(car.price);
 
   const whatsappUrl = `https://wa.me/201221996350?text=${encodeURIComponent(
-    `السلام عليكم أسامة،\n\nأنا مهتم بشراء / حجز السيارة التالية:\n\n🚗 السيارة: ${car.title}\n🏷️ الماركة: ${car.brand}\n📅 السنة: ${car.year}\n💰 السعر: ${formatPrice(price)}\n⚡ القوة: ${formatNumber(car.horsepower)} حصان\n🏁 السرعة القصوى: ${car.top_speed} كم/س\n⚙️ المحرك: ${car.engine}\n🔧 ناقل الحركة: ${car.transmission}\n📊 المسافة المقطوعة: ${formatNumber(car.mileage)} كم\n\nياريت تتواصل معايا لتأكيد التفاصيل وطريقة الدفع. شكراً لك.`,
+    `Hello Osama,\n\nI am interested in purchasing / reserving the following vehicle:\n\n🚗 Car: ${car.title}\n🏷️ Brand: ${car.brand}\n📅 Year: ${car.year}\n💰 Price: ${formatPrice(price)}\n⚡ Horsepower: ${formatNumber(car.horsepower)} hp\n🏁 Top Speed: ${car.top_speed} km/h\n⚙️ Engine: ${car.engine}\n🔧 Transmission: ${car.transmission}\n📊 Mileage: ${formatNumber(car.mileage)} km\n\nPlease get in touch to confirm details and payment options. Thank you.`,
   )}`;
+
 
 
   const toggleWish = async () => {
@@ -122,7 +123,7 @@ function CarDetail() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="h-14 px-8 flex-1 text-base font-semibold shadow-lg">
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="size-5"/> شراء / طلب على واتساب
+                  <MessageCircle className="size-5"/> Buy / Request on WhatsApp
                 </a>
               </Button>
 
@@ -130,9 +131,10 @@ function CarDetail() {
                 <Heart className="size-4"/>
               </Button>
             </div>
-            <p className="mt-3 text-xs text-muted-foreground text-center sm:text-right">
-              اضغط الزر لإرسال طلبك على واتساب أسامة مع كل مواصفات السيارة وسعرها جاهزة.
+            <p className="mt-3 text-xs text-muted-foreground text-center sm:text-left">
+              Tap the button to send Osama a WhatsApp message with the full car specs and price ready.
             </p>
+
 
 
 
