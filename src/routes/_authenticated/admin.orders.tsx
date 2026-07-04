@@ -15,10 +15,15 @@ function AdminOrders() {
   const { data: orders = [] } = useQuery({
     queryKey: ["admin-orders"],
     queryFn: async () => {
-      const { data } = await supabase.from("orders")
-        .select("id, status, total_price, created_at, cars(title, brand), profiles:user_id(name, email)")
+      const { data: rows } = await supabase.from("orders")
+        .select("id, status, total_price, created_at, user_id, cars(title, brand)")
         .order("created_at", { ascending: false });
-      return data ?? [];
+      const userIds = Array.from(new Set((rows ?? []).map((r) => r.user_id)));
+      const { data: profs } = userIds.length
+        ? await supabase.from("profiles").select("id, name, email").in("id", userIds)
+        : { data: [] as { id: string; name: string | null; email: string | null }[] };
+      const map = new Map((profs ?? []).map((p) => [p.id, p]));
+      return (rows ?? []).map((r) => ({ ...r, profile: map.get(r.user_id) }));
     },
   });
 
@@ -49,8 +54,8 @@ function AdminOrders() {
               <TableRow key={o.id}>
                 <TableCell>{o.cars?.title ?? "—"}</TableCell>
                 <TableCell className="text-muted-foreground text-sm">
-                  <div>{o.profiles?.name}</div>
-                  <div className="text-xs">{o.profiles?.email}</div>
+                  <div>{o.profile?.name ?? "—"}</div>
+                  <div className="text-xs">{o.profile?.email}</div>
                 </TableCell>
                 <TableCell className="text-primary">{formatPrice(Number(o.total_price))}</TableCell>
                 <TableCell className="text-muted-foreground text-sm">{new Date(o.created_at).toLocaleDateString()}</TableCell>

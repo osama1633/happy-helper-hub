@@ -15,13 +15,13 @@ export const Route = createFileRoute("/_authenticated/admin")({
   component: AdminLayout,
 });
 
-const items = [
+const items: { to: "/admin" | "/admin/cars" | "/admin/orders" | "/admin/users" | "/admin/messages"; label: string; icon: typeof LayoutDashboard; exact?: boolean }[] = [
   { to: "/admin", label: "Overview", icon: LayoutDashboard, exact: true },
   { to: "/admin/cars", label: "Cars", icon: Car },
   { to: "/admin/orders", label: "Orders", icon: ShoppingBag },
   { to: "/admin/users", label: "Users", icon: Users },
   { to: "/admin/messages", label: "Messages", icon: Mail },
-] as const;
+];
 
 function AdminLayout() {
   return (

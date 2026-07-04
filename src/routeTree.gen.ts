@@ -13,8 +13,18 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CarsRouteImport } from './routes/cars'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CarsSlugRouteImport } from './routes/cars.$slug'
+import { Route as AuthenticatedWishlistRouteImport } from './routes/_authenticated/wishlist'
+import { Route as AuthenticatedOrdersRouteImport } from './routes/_authenticated/orders'
+import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
+import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin.index'
+import { Route as AuthenticatedCheckoutSlugRouteImport } from './routes/_authenticated/checkout.$slug'
+import { Route as AuthenticatedAdminUsersRouteImport } from './routes/_authenticated/admin.users'
+import { Route as AuthenticatedAdminOrdersRouteImport } from './routes/_authenticated/admin.orders'
+import { Route as AuthenticatedAdminMessagesRouteImport } from './routes/_authenticated/admin.messages'
+import { Route as AuthenticatedAdminCarsRouteImport } from './routes/_authenticated/admin.cars'
 
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
@@ -36,6 +46,10 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -46,6 +60,54 @@ const CarsSlugRoute = CarsSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => CarsRoute,
 } as any)
+const AuthenticatedWishlistRoute = AuthenticatedWishlistRouteImport.update({
+  id: '/wishlist',
+  path: '/wishlist',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedOrdersRoute = AuthenticatedOrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedAdminIndexRoute = AuthenticatedAdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AuthenticatedAdminRoute,
+} as any)
+const AuthenticatedCheckoutSlugRoute =
+  AuthenticatedCheckoutSlugRouteImport.update({
+    id: '/checkout/$slug',
+    path: '/checkout/$slug',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedAdminUsersRoute = AuthenticatedAdminUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => AuthenticatedAdminRoute,
+} as any)
+const AuthenticatedAdminOrdersRoute =
+  AuthenticatedAdminOrdersRouteImport.update({
+    id: '/orders',
+    path: '/orders',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminMessagesRoute =
+  AuthenticatedAdminMessagesRouteImport.update({
+    id: '/messages',
+    path: '/messages',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminCarsRoute = AuthenticatedAdminCarsRouteImport.update({
+  id: '/cars',
+  path: '/cars',
+  getParentRoute: () => AuthenticatedAdminRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -53,7 +115,16 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/cars': typeof CarsRouteWithChildren
   '/contact': typeof ContactRoute
+  '/admin': typeof AuthenticatedAdminRouteWithChildren
+  '/orders': typeof AuthenticatedOrdersRoute
+  '/wishlist': typeof AuthenticatedWishlistRoute
   '/cars/$slug': typeof CarsSlugRoute
+  '/admin/cars': typeof AuthenticatedAdminCarsRoute
+  '/admin/messages': typeof AuthenticatedAdminMessagesRoute
+  '/admin/orders': typeof AuthenticatedAdminOrdersRoute
+  '/admin/users': typeof AuthenticatedAdminUsersRoute
+  '/checkout/$slug': typeof AuthenticatedCheckoutSlugRoute
+  '/admin/': typeof AuthenticatedAdminIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -61,34 +132,92 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/cars': typeof CarsRouteWithChildren
   '/contact': typeof ContactRoute
+  '/orders': typeof AuthenticatedOrdersRoute
+  '/wishlist': typeof AuthenticatedWishlistRoute
   '/cars/$slug': typeof CarsSlugRoute
+  '/admin/cars': typeof AuthenticatedAdminCarsRoute
+  '/admin/messages': typeof AuthenticatedAdminMessagesRoute
+  '/admin/orders': typeof AuthenticatedAdminOrdersRoute
+  '/admin/users': typeof AuthenticatedAdminUsersRoute
+  '/checkout/$slug': typeof AuthenticatedCheckoutSlugRoute
+  '/admin': typeof AuthenticatedAdminIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
   '/cars': typeof CarsRouteWithChildren
   '/contact': typeof ContactRoute
+  '/_authenticated/admin': typeof AuthenticatedAdminRouteWithChildren
+  '/_authenticated/orders': typeof AuthenticatedOrdersRoute
+  '/_authenticated/wishlist': typeof AuthenticatedWishlistRoute
   '/cars/$slug': typeof CarsSlugRoute
+  '/_authenticated/admin/cars': typeof AuthenticatedAdminCarsRoute
+  '/_authenticated/admin/messages': typeof AuthenticatedAdminMessagesRoute
+  '/_authenticated/admin/orders': typeof AuthenticatedAdminOrdersRoute
+  '/_authenticated/admin/users': typeof AuthenticatedAdminUsersRoute
+  '/_authenticated/checkout/$slug': typeof AuthenticatedCheckoutSlugRoute
+  '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/auth' | '/cars' | '/contact' | '/cars/$slug'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/auth' | '/cars' | '/contact' | '/cars/$slug'
-  id:
-    | '__root__'
+  fullPaths:
     | '/'
     | '/about'
     | '/auth'
     | '/cars'
     | '/contact'
+    | '/admin'
+    | '/orders'
+    | '/wishlist'
     | '/cars/$slug'
+    | '/admin/cars'
+    | '/admin/messages'
+    | '/admin/orders'
+    | '/admin/users'
+    | '/checkout/$slug'
+    | '/admin/'
+  fileRoutesByTo: FileRoutesByTo
+  to:
+    | '/'
+    | '/about'
+    | '/auth'
+    | '/cars'
+    | '/contact'
+    | '/orders'
+    | '/wishlist'
+    | '/cars/$slug'
+    | '/admin/cars'
+    | '/admin/messages'
+    | '/admin/orders'
+    | '/admin/users'
+    | '/checkout/$slug'
+    | '/admin'
+  id:
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/about'
+    | '/auth'
+    | '/cars'
+    | '/contact'
+    | '/_authenticated/admin'
+    | '/_authenticated/orders'
+    | '/_authenticated/wishlist'
+    | '/cars/$slug'
+    | '/_authenticated/admin/cars'
+    | '/_authenticated/admin/messages'
+    | '/_authenticated/admin/orders'
+    | '/_authenticated/admin/users'
+    | '/_authenticated/checkout/$slug'
+    | '/_authenticated/admin/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
   AuthRoute: typeof AuthRoute
   CarsRoute: typeof CarsRouteWithChildren
@@ -125,6 +254,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -139,8 +275,107 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CarsSlugRouteImport
       parentRoute: typeof CarsRoute
     }
+    '/_authenticated/wishlist': {
+      id: '/_authenticated/wishlist'
+      path: '/wishlist'
+      fullPath: '/wishlist'
+      preLoaderRoute: typeof AuthenticatedWishlistRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/orders': {
+      id: '/_authenticated/orders'
+      path: '/orders'
+      fullPath: '/orders'
+      preLoaderRoute: typeof AuthenticatedOrdersRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/admin/': {
+      id: '/_authenticated/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AuthenticatedAdminIndexRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/checkout/$slug': {
+      id: '/_authenticated/checkout/$slug'
+      path: '/checkout/$slug'
+      fullPath: '/checkout/$slug'
+      preLoaderRoute: typeof AuthenticatedCheckoutSlugRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/admin/users': {
+      id: '/_authenticated/admin/users'
+      path: '/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AuthenticatedAdminUsersRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/orders': {
+      id: '/_authenticated/admin/orders'
+      path: '/orders'
+      fullPath: '/admin/orders'
+      preLoaderRoute: typeof AuthenticatedAdminOrdersRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/messages': {
+      id: '/_authenticated/admin/messages'
+      path: '/messages'
+      fullPath: '/admin/messages'
+      preLoaderRoute: typeof AuthenticatedAdminMessagesRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/cars': {
+      id: '/_authenticated/admin/cars'
+      path: '/cars'
+      fullPath: '/admin/cars'
+      preLoaderRoute: typeof AuthenticatedAdminCarsRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
   }
 }
+
+interface AuthenticatedAdminRouteChildren {
+  AuthenticatedAdminCarsRoute: typeof AuthenticatedAdminCarsRoute
+  AuthenticatedAdminMessagesRoute: typeof AuthenticatedAdminMessagesRoute
+  AuthenticatedAdminOrdersRoute: typeof AuthenticatedAdminOrdersRoute
+  AuthenticatedAdminUsersRoute: typeof AuthenticatedAdminUsersRoute
+  AuthenticatedAdminIndexRoute: typeof AuthenticatedAdminIndexRoute
+}
+
+const AuthenticatedAdminRouteChildren: AuthenticatedAdminRouteChildren = {
+  AuthenticatedAdminCarsRoute: AuthenticatedAdminCarsRoute,
+  AuthenticatedAdminMessagesRoute: AuthenticatedAdminMessagesRoute,
+  AuthenticatedAdminOrdersRoute: AuthenticatedAdminOrdersRoute,
+  AuthenticatedAdminUsersRoute: AuthenticatedAdminUsersRoute,
+  AuthenticatedAdminIndexRoute: AuthenticatedAdminIndexRoute,
+}
+
+const AuthenticatedAdminRouteWithChildren =
+  AuthenticatedAdminRoute._addFileChildren(AuthenticatedAdminRouteChildren)
+
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminRoute: typeof AuthenticatedAdminRouteWithChildren
+  AuthenticatedOrdersRoute: typeof AuthenticatedOrdersRoute
+  AuthenticatedWishlistRoute: typeof AuthenticatedWishlistRoute
+  AuthenticatedCheckoutSlugRoute: typeof AuthenticatedCheckoutSlugRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminRoute: AuthenticatedAdminRouteWithChildren,
+  AuthenticatedOrdersRoute: AuthenticatedOrdersRoute,
+  AuthenticatedWishlistRoute: AuthenticatedWishlistRoute,
+  AuthenticatedCheckoutSlugRoute: AuthenticatedCheckoutSlugRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
 
 interface CarsRouteChildren {
   CarsSlugRoute: typeof CarsSlugRoute
@@ -154,6 +389,7 @@ const CarsRouteWithChildren = CarsRoute._addFileChildren(CarsRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AboutRoute: AboutRoute,
   AuthRoute: AuthRoute,
   CarsRoute: CarsRouteWithChildren,
