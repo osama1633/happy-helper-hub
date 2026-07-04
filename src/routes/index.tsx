@@ -4,6 +4,7 @@ import { useSuspenseQuery, useQuery } from "@tanstack/react-query";
 import { ArrowRight, Shield, Sparkles, Trophy, Globe2 } from "lucide-react";
 import { PageShell } from "@/components/page-shell";
 import { CarCard, type CarSummary } from "@/components/car-card";
+import { IntroAnimation } from "@/components/intro-animation";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { formatPrice } from "@/lib/format";
