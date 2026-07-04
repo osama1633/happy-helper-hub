@@ -125,10 +125,11 @@ function CarDetail() {
                 </a>
               </Button>
               <Button asChild size="lg" variant="outline" className="h-12 gold-border">
-                <a href="tel:+201221996350">
-                  📞 Call Osama
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="size-4"/> Reserve on WhatsApp
                 </a>
               </Button>
+
               <Button size="lg" variant="outline" className="h-12 gold-border" onClick={toggleWish} disabled={wishing}>
                 <Heart className="size-4"/>
               </Button>
