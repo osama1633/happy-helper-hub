@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Gauge, Zap } from "lucide-react";
+import { Gauge, MessageCircle, Zap } from "lucide-react";
 import { formatPrice, formatNumber } from "@/lib/format";
 
 export type CarSummary = {
@@ -16,17 +16,29 @@ export type CarSummary = {
 };
 
 export function CarCard({ car, index = 0 }: { car: CarSummary; index?: number }) {
+  const price = Number(car.price);
+  const whatsappUrl = `https://wa.me/201221996350?text=${encodeURIComponent(
+    `مرحبا أوساما،
+
+أنا عاوز أشتري/أحجز العربية دي:
+${car.title}
+السعر: ${formatPrice(price)}
+
+من فضلك تواصل معايا للتفاصيل.`,
+  )}`;
+
   return (
-    <motion.div
+    <motion.article
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.55, delay: index * 0.05, ease: "easeOut" }}
+      className="group overflow-hidden rounded-lg gold-border bg-card"
     >
       <Link
         to="/cars/$slug"
         params={{ slug: car.slug }}
-        className="group block overflow-hidden rounded-lg gold-border bg-card"
+        className="block"
       >
         <div className="relative aspect-[16/10] overflow-hidden bg-onyx">
           <img
@@ -40,23 +52,38 @@ export function CarCard({ car, index = 0 }: { car: CarSummary; index?: number })
             {car.brand.toUpperCase()}
           </span>
         </div>
-        <div className="p-5">
-          <div className="flex items-baseline justify-between gap-2">
-            <h3 className="font-display text-lg leading-tight text-foreground group-hover:text-primary transition-colors">
+      </Link>
+      <div className="p-5">
+        <div className="flex items-baseline justify-between gap-2">
+          <Link to="/cars/$slug" params={{ slug: car.slug }} className="min-w-0">
+            <h3 className="font-display text-lg leading-tight text-foreground transition-colors hover:text-primary">
               {car.title}
             </h3>
-            <span className="text-xs text-muted-foreground">{car.year}</span>
-          </div>
-          <div className="mt-3 flex items-center gap-4 text-xs text-muted-foreground">
-            <span className="flex items-center gap-1"><Zap className="size-3 text-primary"/>{formatNumber(car.horsepower)} hp</span>
-            <span className="flex items-center gap-1"><Gauge className="size-3 text-primary"/>{car.top_speed} km/h</span>
-          </div>
-          <div className="mt-4 flex items-end justify-between border-t border-border/40 pt-3">
-            <span className="text-xs uppercase tracking-widest text-muted-foreground">From</span>
-            <span className="font-display text-xl gold-gradient-text">{formatPrice(car.price)}</span>
-          </div>
+          </Link>
+          <span className="text-xs text-muted-foreground">{car.year}</span>
         </div>
-      </Link>
-    </motion.div>
+        <div className="mt-3 flex items-center gap-4 text-xs text-muted-foreground">
+          <span className="flex items-center gap-1"><Zap className="size-3 text-primary"/>{formatNumber(car.horsepower)} hp</span>
+          <span className="flex items-center gap-1"><Gauge className="size-3 text-primary"/>{car.top_speed} km/h</span>
+        </div>
+        <div className="mt-4 flex items-end justify-between border-t border-border/40 pt-3">
+          <span className="text-xs uppercase tracking-widest text-muted-foreground">From</span>
+          <span className="font-display text-xl gold-gradient-text">{formatPrice(car.price)}</span>
+        </div>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`شراء ${car.title} على واتساب`}
+          className="mt-4 inline-flex h-11 w-full items-center justify-center gap-2 rounded-md bg-primary px-4 text-sm font-semibold text-primary-foreground shadow transition-colors hover:bg-primary/90"
+        >
+          <MessageCircle className="size-4" />
+          شراء / حجز على واتساب
+        </a>
+        <p className="mt-2 text-center text-[11px] leading-relaxed text-muted-foreground">
+          الزرار هيفتح واتساب برسالة جاهزة على رقم أوساما.
+        </p>
+      </div>
+    </motion.article>
   );
 }
