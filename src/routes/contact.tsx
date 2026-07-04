@@ -45,10 +45,20 @@ function ContactPage() {
             Whether you seek a specific model or need us to hunt a rare specification, our team responds within one business hour.
           </p>
           <div className="mt-10 space-y-5 text-sm">
-            <div className="flex items-center gap-4"><Phone className="size-4 text-primary"/> +20 122 199 6350</div>
-            <div className="flex items-center gap-4"><Mail className="size-4 text-primary"/> concierge@aurelia.co</div>
+            <a
+              href="https://wa.me/201221996350?text=Hello%20Osama%2C%20I%27m%20interested%20in%20a%20car%20from%20your%20collection."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-4 hover:text-primary transition-colors"
+            >
+              <Phone className="size-4 text-primary"/> +20 122 199 6350 <span className="text-xs text-primary">(WhatsApp)</span>
+            </a>
+            <a href="mailto:concierge@osama.co" className="flex items-center gap-4 hover:text-primary transition-colors">
+              <Mail className="size-4 text-primary"/> concierge@osama.co
+            </a>
             <div className="flex items-center gap-4"><MapPin className="size-4 text-primary"/> By appointment · Global delivery</div>
           </div>
+
         </motion.div>
 
         <motion.form onSubmit={submit} initial={{opacity:0, y:16}} animate={{opacity:1, y:0}} transition={{delay:0.1}}

@@ -23,8 +23,18 @@ export function SiteFooter() {
         <div>
           <h5 className="text-sm tracking-widest text-primary mb-3">CONCIERGE</h5>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li>+20 122 199 6350</li>
-            <li>concierge@aurelia.co</li>
+            <li>
+              <a
+                href="https://wa.me/201221996350?text=Hello%20Osama%2C%20I%27m%20interested%20in%20a%20car%20from%20your%20collection."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors"
+              >
+                +20 122 199 6350 (WhatsApp)
+              </a>
+            </li>
+            <li>concierge@osama.co</li>
+
             <li>By appointment only</li>
           </ul>
         </div>
