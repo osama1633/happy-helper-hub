@@ -61,8 +61,9 @@ function CarDetail() {
   const price = Number(car.price);
 
   const whatsappUrl = `https://wa.me/201221996350?text=${encodeURIComponent(
-    `Hello Osama,\n\nI am interested in purchasing:\n${car.title}\nPrice: ${formatPrice(price)}\n\nPlease contact me with more details.`,
+    `السلام عليكم أسامة،\n\nأنا مهتم بشراء / حجز السيارة التالية:\n\n🚗 السيارة: ${car.title}\n🏷️ الماركة: ${car.brand}\n📅 السنة: ${car.year}\n💰 السعر: ${formatPrice(price)}\n⚡ القوة: ${formatNumber(car.horsepower)} حصان\n🏁 السرعة القصوى: ${car.top_speed} كم/س\n⚙️ المحرك: ${car.engine}\n🔧 ناقل الحركة: ${car.transmission}\n📊 المسافة المقطوعة: ${formatNumber(car.mileage)} كم\n\nياريت تتواصل معايا لتأكيد التفاصيل وطريقة الدفع. شكراً لك.`,
   )}`;
+
 
   const toggleWish = async () => {
     if (!user) { toast.error("Please sign in to save vehicles"); return; }
