@@ -13,9 +13,9 @@ import { Mail, Phone, MapPin } from "lucide-react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Aurelia Motors Private Concierge" },
-      { name: "description", content: "Reach the Aurelia Motors concierge team for private sourcing, viewings and delivery." },
-      { property: "og:title", content: "Contact Aurelia Motors" },
+      { title: "Contact — OSAMA Private Concierge" },
+      { name: "description", content: "Reach the OSAMA concierge team for private sourcing, viewings and delivery." },
+      { property: "og:title", content: "Contact OSAMA" },
     ],
   }),
   component: ContactPage,

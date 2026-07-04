@@ -37,7 +37,7 @@ function AdminHome() {
   return (
     <div>
       <h1 className="font-display text-4xl">Overview</h1>
-      <p className="mt-2 text-muted-foreground">Real-time metrics for Aurelia Motors.</p>
+      <p className="mt-2 text-muted-foreground">Real-time metrics for OSAMA.</p>
       <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {cards.map((c, i) => (
           <motion.div key={c.v} initial={{opacity:0, y:10}} animate={{opacity:1, y:0}} transition={{delay: i*0.05}}

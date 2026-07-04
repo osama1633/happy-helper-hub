@@ -14,8 +14,8 @@ import { Eye, EyeOff } from "lucide-react";
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
-      { title: "Sign in — Aurelia Motors" },
-      { name: "description", content: "Sign in to Aurelia Motors to save vehicles and manage orders." },
+      { title: "Sign in — OSAMA" },
+      { name: "description", content: "Sign in to OSAMA to save vehicles and manage orders." },
     ],
   }),
   component: AuthPage,
@@ -68,7 +68,7 @@ function AuthPage() {
           className="glass-panel rounded-lg p-8">
           <div className="text-center mb-8">
             <p className="text-xs tracking-[0.4em] text-primary">MEMBER ACCESS</p>
-            <h1 className="mt-2 font-display text-3xl">Welcome to Aurelia</h1>
+            <h1 className="mt-2 font-display text-3xl">Welcome to OSAMA</h1>
           </div>
 
           <Tabs defaultValue="signin">

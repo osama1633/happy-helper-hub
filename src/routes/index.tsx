@@ -12,9 +12,9 @@ import { formatPrice } from "@/lib/format";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Aurelia Motors — The World's Finest Automobiles" },
+      { title: "OSAMA — The World's Finest Automobiles" },
       { name: "description", content: "A private atelier of the world's most exceptional luxury automobiles: Ferrari, Lamborghini, Rolls-Royce, Bentley, Porsche, McLaren and more." },
-      { property: "og:title", content: "Aurelia Motors — Luxury Car Marketplace" },
+      { property: "og:title", content: "OSAMA — Luxury Car Marketplace" },
       { property: "og:description", content: "Curated luxury automobiles delivered globally. By appointment only." },
     ],
   }),
@@ -196,8 +196,8 @@ function HomePage() {
         <h2 className="text-center font-display text-4xl md:text-5xl mb-16">Words from our <span className="gold-gradient-text italic">patrons</span></h2>
         <div className="grid gap-6 md:grid-cols-3">
           {[
-            { q: "The delivery of my Aventador was choreographed like a Swiss watch. Aurelia understands its clientele.", a: "H. Al-Mansouri", r: "Dubai" },
-            { q: "I've bought seven cars from Aurelia. Not one surprise. Not one delay. That is the entire proposition.", a: "M. Rossi", r: "Monaco" },
+            { q: "The delivery of my Aventador was choreographed like a Swiss watch. OSAMA understands its clientele.", a: "H. Al-Mansouri", r: "Dubai" },
+            { q: "I've bought seven cars from OSAMA. Not one surprise. Not one delay. That is the entire proposition.", a: "M. Rossi", r: "Monaco" },
             { q: "My Rolls-Royce Spectre arrived in London before the official European launch. Enough said.", a: "J. Winterbourne", r: "London" },
           ].map((t, i) => (
             <motion.blockquote
