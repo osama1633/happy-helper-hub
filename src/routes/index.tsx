@@ -86,18 +86,18 @@ function HomePage() {
           </motion.div>
         </div>
         {/* Hero car driving toward the viewer */}
-        <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[72vw] overflow-hidden md:block [perspective:1200px]">
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-0 hidden w-[52vw] overflow-hidden md:block [perspective:1200px]">
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: [0, 0.85, 0.35] }}
+            animate={{ opacity: [0, 0.7, 0.3] }}
             transition={{ duration: 2.4, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute bottom-[18%] right-[8%] h-32 w-[42vw] max-w-2xl rounded-full bg-primary/25 blur-3xl"
+            className="absolute bottom-[18%] right-[4%] h-32 w-[34vw] max-w-xl rounded-full bg-primary/25 blur-3xl"
           />
           <motion.div
-            initial={{ opacity: 0, scaleX: 0.25, x: 220 }}
-            animate={{ opacity: [0, 1, 0], scaleX: [0.25, 1.15, 1.8], x: [220, 40, -180] }}
+            initial={{ opacity: 0, scaleX: 0.25, x: 180 }}
+            animate={{ opacity: [0, 1, 0], scaleX: [0.25, 1.15, 1.8], x: [180, 20, -120] }}
             transition={{ duration: 2.3, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute bottom-[24%] right-[6%] h-px w-[46vw] origin-right bg-gradient-to-l from-primary via-primary/60 to-transparent"
+            className="absolute bottom-[24%] right-[4%] h-px w-[36vw] origin-right bg-gradient-to-l from-primary via-primary/60 to-transparent"
           />
           <motion.img
             src="/hero-car.png"
@@ -112,26 +112,27 @@ function HomePage() {
               filter: "blur(18px) brightness(0.55)",
             }}
             animate={{
-              opacity: [0, 1, 1],
-              scale: [0.34, 0.92, 1.16],
-              x: ["18vw", "4vw", "-1vw"],
-              y: ["-7vh", "0vh", "5vh"],
+              opacity: [0, 0.95, 0.95],
+              scale: [0.34, 0.9, 1.05],
+              x: ["18vw", "6vw", "2vw"],
+              y: ["-7vh", "0vh", "4vh"],
               rotateY: [-13, -4, 0],
               filter: [
                 "blur(18px) brightness(0.55)",
                 "blur(2px) brightness(0.95)",
-                "blur(0px) brightness(1.08)",
+                "blur(0px) brightness(1.05)",
               ],
             }}
             transition={{ duration: 2.8, delay: 0.35, ease: [0.16, 1, 0.3, 1], times: [0, 0.68, 1] }}
-            className="absolute bottom-[3%] right-[-13%] w-[78vw] max-w-6xl select-none drop-shadow-[0_36px_90px_rgba(201,168,76,0.42)]"
+            className="absolute bottom-[6%] right-[-6%] w-[56vw] max-w-4xl select-none drop-shadow-[0_36px_90px_rgba(201,168,76,0.42)]"
             style={{
               transformStyle: "preserve-3d",
-              maskImage: "radial-gradient(ellipse at center, black 64%, transparent 96%)",
-              WebkitMaskImage: "radial-gradient(ellipse at center, black 64%, transparent 96%)",
+              maskImage: "radial-gradient(ellipse at center, black 60%, transparent 92%)",
+              WebkitMaskImage: "radial-gradient(ellipse at center, black 60%, transparent 92%)",
             }}
           />
         </div>
+
 
         <motion.div
           animate={{ y: [0, 10, 0] }} transition={{ duration: 2.5, repeat: Infinity }}
