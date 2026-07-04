@@ -43,6 +43,7 @@ function HomePage() {
   const { data: cars = [] } = useFeaturedCars();
   return (
     <PageShell>
+      <IntroAnimation />
       {/* HERO */}
       <section className="relative min-h-[92vh] flex items-center overflow-hidden">
         <div
