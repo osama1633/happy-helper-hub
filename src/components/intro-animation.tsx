@@ -98,7 +98,7 @@ export function IntroAnimation() {
                 transition={{ delay: 1.8, duration: 0.9, ease: "easeOut" }}
                 className="mt-4 font-display text-5xl md:text-7xl gold-gradient-text"
               >
-                Aurelia Motors
+                OSAMA
               </motion.h1>
               <motion.div
                 initial={{ scaleX: 0 }}

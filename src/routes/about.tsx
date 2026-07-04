@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Aurelia Motors" },
-      { name: "description", content: "Aurelia Motors is a private atelier trading the world's most exceptional automobiles." },
-      { property: "og:title", content: "About Aurelia Motors" },
+      { title: "About — OSAMA" },
+      { name: "description", content: "OSAMA is a private atelier trading the world's most exceptional automobiles." },
+      { property: "og:title", content: "About OSAMA" },
     ],
   }),
   component: AboutPage,
@@ -23,7 +23,7 @@ function AboutPage() {
           Discretion. <span className="gold-gradient-text italic">Excellence.</span> Delivery.
         </motion.h1>
         <div className="mt-12 grid gap-10 md:grid-cols-2 text-muted-foreground leading-relaxed">
-          <p>Founded on the principle that acquiring an exceptional automobile should be as memorable as owning one, Aurelia Motors operates a private atelier serving collectors, connoisseurs and heads of state across four continents.</p>
+          <p>Founded on the principle that acquiring an exceptional automobile should be as memorable as owning one, OSAMA operates a private atelier serving collectors, connoisseurs and heads of state across four continents.</p>
           <p>Every vehicle in our collection is personally inspected by a master technician, provenance-verified, and delivered by our concierge team on white-glove protocols. We do not run public showrooms. We do not advertise. Our clients find us through their peers.</p>
         </div>
         <div className="mt-16 grid gap-8 md:grid-cols-3">

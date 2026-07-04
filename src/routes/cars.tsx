@@ -15,9 +15,9 @@ import { Search } from "lucide-react";
 export const Route = createFileRoute("/cars")({
   head: () => ({
     meta: [
-      { title: "Collection — Aurelia Motors" },
+      { title: "Collection — OSAMA" },
       { name: "description", content: "Browse our full curated collection of luxury automobiles. Filter by brand, price and year." },
-      { property: "og:title", content: "The Collection — Aurelia Motors" },
+      { property: "og:title", content: "The Collection — OSAMA" },
     ],
   }),
   component: CarsPage,
