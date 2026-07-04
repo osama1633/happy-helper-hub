@@ -4,6 +4,7 @@ import { useSuspenseQuery, useQuery } from "@tanstack/react-query";
 import { ArrowRight, Shield, Sparkles, Trophy, Globe2 } from "lucide-react";
 import { PageShell } from "@/components/page-shell";
 import { CarCard, type CarSummary } from "@/components/car-card";
+import { IntroAnimation } from "@/components/intro-animation";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { formatPrice } from "@/lib/format";
@@ -42,6 +43,7 @@ function HomePage() {
   const { data: cars = [] } = useFeaturedCars();
   return (
     <PageShell>
+      <IntroAnimation />
       {/* HERO */}
       <section className="relative min-h-[92vh] flex items-center overflow-hidden">
         <div
@@ -83,6 +85,16 @@ function HomePage() {
             </Button>
           </motion.div>
         </div>
+        {/* Driving-in showcase car */}
+        <motion.img
+          src="/cars/ferrari.jpg"
+          alt=""
+          aria-hidden
+          initial={{ x: "60vw", opacity: 0, rotate: 2 }}
+          animate={{ x: 0, opacity: 1, rotate: 0 }}
+          transition={{ duration: 1.6, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="pointer-events-none absolute -right-10 md:right-0 bottom-10 md:bottom-16 w-[70vw] md:w-[55vw] max-w-3xl drop-shadow-[0_40px_80px_rgba(201,168,76,0.35)] hidden md:block"
+        />
         <motion.div
           animate={{ y: [0, 10, 0] }} transition={{ duration: 2.5, repeat: Infinity }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 text-primary text-xs tracking-widest"
