@@ -120,21 +120,20 @@ function CarDetail() {
             </div>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild size="lg" className="h-12 px-8 flex-1 sm:flex-none">
+              <Button asChild size="lg" className="h-14 px-8 flex-1 text-base font-semibold shadow-lg">
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="size-4"/> Buy on WhatsApp
-                </a>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="h-12 gold-border">
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="size-4"/> Reserve on WhatsApp
+                  <MessageCircle className="size-5"/> شراء / طلب على واتساب
                 </a>
               </Button>
 
-              <Button size="lg" variant="outline" className="h-12 gold-border" onClick={toggleWish} disabled={wishing}>
+              <Button size="lg" variant="outline" className="h-14 gold-border" onClick={toggleWish} disabled={wishing}>
                 <Heart className="size-4"/>
               </Button>
             </div>
+            <p className="mt-3 text-xs text-muted-foreground text-center sm:text-right">
+              اضغط الزر لإرسال طلبك على واتساب أسامة مع كل مواصفات السيارة وسعرها جاهزة.
+            </p>
+
 
 
             <div className="mt-8 glass-panel rounded-lg p-5 flex gap-4 items-start">
