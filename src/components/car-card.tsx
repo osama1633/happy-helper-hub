@@ -18,14 +18,15 @@ export type CarSummary = {
 export function CarCard({ car, index = 0 }: { car: CarSummary; index?: number }) {
   const price = Number(car.price);
   const whatsappUrl = `https://wa.me/201221996350?text=${encodeURIComponent(
-    `مرحبا أوساما،
+    `Hello Osama,
 
-أنا عاوز أشتري/أحجز العربية دي:
+I would like to buy / reserve this car:
 ${car.title}
-السعر: ${formatPrice(price)}
+Price: ${formatPrice(price)}
 
-من فضلك تواصل معايا للتفاصيل.`,
+Please contact me with more details.`,
   )}`;
+
 
   return (
     <motion.article
@@ -74,15 +75,13 @@ ${car.title}
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`شراء ${car.title} على واتساب`}
+          aria-label={`Buy ${car.title} on WhatsApp`}
           className="mt-4 inline-flex h-11 w-full items-center justify-center gap-2 rounded-md bg-primary px-4 text-sm font-semibold text-primary-foreground shadow transition-colors hover:bg-primary/90"
         >
           <MessageCircle className="size-4" />
-          شراء / حجز على واتساب
+          Buy / Reserve on WhatsApp
         </a>
-        <p className="mt-2 text-center text-[11px] leading-relaxed text-muted-foreground">
-          الزرار هيفتح واتساب برسالة جاهزة على رقم أوساما.
-        </p>
+
       </div>
     </motion.article>
   );
