@@ -61,8 +61,9 @@ function CarDetail() {
   const price = Number(car.price);
 
   const whatsappUrl = `https://wa.me/201221996350?text=${encodeURIComponent(
-    `Hello Osama,\n\nI am interested in purchasing:\n${car.title}\nPrice: ${formatPrice(price)}\n\nPlease contact me with more details.`,
+    `السلام عليكم أسامة،\n\nأنا مهتم بشراء / حجز السيارة التالية:\n\n🚗 السيارة: ${car.title}\n🏷️ الماركة: ${car.brand}\n📅 السنة: ${car.year}\n💰 السعر: ${formatPrice(price)}\n⚡ القوة: ${formatNumber(car.horsepower)} حصان\n🏁 السرعة القصوى: ${car.top_speed} كم/س\n⚙️ المحرك: ${car.engine}\n🔧 ناقل الحركة: ${car.transmission}\n📊 المسافة المقطوعة: ${formatNumber(car.mileage)} كم\n\nياريت تتواصل معايا لتأكيد التفاصيل وطريقة الدفع. شكراً لك.`,
   )}`;
+
 
   const toggleWish = async () => {
     if (!user) { toast.error("Please sign in to save vehicles"); return; }
@@ -119,21 +120,20 @@ function CarDetail() {
             </div>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild size="lg" className="h-12 px-8 flex-1 sm:flex-none">
+              <Button asChild size="lg" className="h-14 px-8 flex-1 text-base font-semibold shadow-lg">
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="size-4"/> Buy on WhatsApp
-                </a>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="h-12 gold-border">
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="size-4"/> Reserve on WhatsApp
+                  <MessageCircle className="size-5"/> شراء / طلب على واتساب
                 </a>
               </Button>
 
-              <Button size="lg" variant="outline" className="h-12 gold-border" onClick={toggleWish} disabled={wishing}>
+              <Button size="lg" variant="outline" className="h-14 gold-border" onClick={toggleWish} disabled={wishing}>
                 <Heart className="size-4"/>
               </Button>
             </div>
+            <p className="mt-3 text-xs text-muted-foreground text-center sm:text-right">
+              اضغط الزر لإرسال طلبك على واتساب أسامة مع كل مواصفات السيارة وسعرها جاهزة.
+            </p>
+
 
 
             <div className="mt-8 glass-panel rounded-lg p-5 flex gap-4 items-start">
