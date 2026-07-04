@@ -34,12 +34,13 @@ export function SiteHeader() {
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-8">
         <Link to="/" className="flex items-center gap-2">
-          <span className="text-lg md:text-xl font-display font-bold tracking-widest gold-gradient-text">
-            AURELIA
+          <span className="text-lg md:text-xl font-display font-bold tracking-[0.4em] gold-gradient-text">
+            OSAMA
           </span>
           <span className="hidden md:inline text-[10px] tracking-[0.3em] text-muted-foreground">
-            MOTORS
+            MAISON D'AUTOMOBILE
           </span>
+
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
