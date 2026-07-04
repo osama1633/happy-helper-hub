@@ -120,17 +120,20 @@ function CarDetail() {
 
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="h-12 px-8 flex-1 sm:flex-none">
-                <Link to="/checkout/$slug" params={{ slug: car.slug }}>Buy Now</Link>
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="size-4"/> Buy on WhatsApp
+                </a>
               </Button>
               <Button asChild size="lg" variant="outline" className="h-12 gold-border">
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="size-4"/> WhatsApp
+                <a href="tel:+201221996350">
+                  📞 Call Osama
                 </a>
               </Button>
               <Button size="lg" variant="outline" className="h-12 gold-border" onClick={toggleWish} disabled={wishing}>
                 <Heart className="size-4"/>
               </Button>
             </div>
+
 
             <div className="mt-8 glass-panel rounded-lg p-5 flex gap-4 items-start">
               <ShieldCheck className="size-6 text-primary flex-shrink-0 mt-1"/>
