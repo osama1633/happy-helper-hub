@@ -83,20 +83,20 @@ export function IntroAnimation() {
 
           {/* Brand reveal */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center">
+            <div className="text-center px-6">
               <motion.p
                 initial={{ opacity: 0, letterSpacing: "0.2em" }}
-                animate={{ opacity: 1, letterSpacing: "0.5em" }}
-                transition={{ delay: 1.6, duration: 0.9 }}
-                className="text-xs md:text-sm text-primary tracking-[0.5em]"
+                animate={{ opacity: 1, letterSpacing: "0.6em" }}
+                transition={{ delay: 1.4, duration: 0.9 }}
+                className="text-[10px] md:text-xs text-primary tracking-[0.6em]"
               >
-                EST. MMXXV
+                MAISON D'AUTOMOBILE · EST. MMXXV
               </motion.p>
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.8, duration: 0.9, ease: "easeOut" }}
-                className="mt-4 font-display text-5xl md:text-7xl gold-gradient-text"
+                initial={{ opacity: 0, y: 20, letterSpacing: "0.2em" }}
+                animate={{ opacity: 1, y: 0, letterSpacing: "0.35em" }}
+                transition={{ delay: 1.7, duration: 1, ease: "easeOut" }}
+                className="mt-5 font-display text-6xl md:text-8xl font-bold gold-gradient-text tracking-[0.35em]"
               >
                 OSAMA
               </motion.h1>
@@ -104,10 +104,19 @@ export function IntroAnimation() {
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ delay: 2.2, duration: 0.6 }}
-                className="mx-auto mt-6 h-px w-40 origin-left bg-primary"
+                className="mx-auto mt-6 h-px w-48 origin-left bg-gradient-to-r from-transparent via-primary to-transparent"
               />
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2.5, duration: 0.7 }}
+                className="mt-5 text-xs md:text-sm text-muted-foreground tracking-[0.3em] uppercase"
+              >
+                The World's Finest Automobiles
+              </motion.p>
             </div>
           </div>
+
 
           {/* Final black wipe */}
           <motion.div
