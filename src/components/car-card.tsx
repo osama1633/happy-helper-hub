@@ -18,14 +18,15 @@ export type CarSummary = {
 export function CarCard({ car, index = 0 }: { car: CarSummary; index?: number }) {
   const price = Number(car.price);
   const whatsappUrl = `https://wa.me/201221996350?text=${encodeURIComponent(
-    `مرحبا أوساما،
+    `Hello Osama,
 
-أنا عاوز أشتري/أحجز العربية دي:
+I would like to buy / reserve this car:
 ${car.title}
-السعر: ${formatPrice(price)}
+Price: ${formatPrice(price)}
 
-من فضلك تواصل معايا للتفاصيل.`,
+Please contact me with more details.`,
   )}`;
+
 
   return (
     <motion.article
