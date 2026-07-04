@@ -85,20 +85,53 @@ function HomePage() {
             </Button>
           </motion.div>
         </div>
-        {/* Hero car emerging from the shadows */}
-        <motion.img
-          src="/hero-car.png"
-          alt=""
-          aria-hidden
-          initial={{ opacity: 0, scale: 1.15, x: 80, filter: "blur(20px)" }}
-          animate={{ opacity: 1, scale: 1, x: 0, filter: "blur(0px)" }}
-          transition={{ duration: 2, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="pointer-events-none absolute right-[-6%] bottom-[6%] w-[75vw] md:w-[62vw] max-w-4xl hidden md:block select-none"
-          style={{
-            maskImage: "radial-gradient(ellipse at center, black 60%, transparent 95%)",
-            WebkitMaskImage: "radial-gradient(ellipse at center, black 60%, transparent 95%)",
-          }}
-        />
+        {/* Hero car driving toward the viewer */}
+        <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[72vw] overflow-hidden md:block [perspective:1200px]">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 0.85, 0.35] }}
+            transition={{ duration: 2.4, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute bottom-[18%] right-[8%] h-32 w-[42vw] max-w-2xl rounded-full bg-primary/25 blur-3xl"
+          />
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0.25, x: 220 }}
+            animate={{ opacity: [0, 1, 0], scaleX: [0.25, 1.15, 1.8], x: [220, 40, -180] }}
+            transition={{ duration: 2.3, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute bottom-[24%] right-[6%] h-px w-[46vw] origin-right bg-gradient-to-l from-primary via-primary/60 to-transparent"
+          />
+          <motion.img
+            src="/hero-car.png"
+            alt=""
+            aria-hidden
+            initial={{
+              opacity: 0,
+              scale: 0.34,
+              x: "18vw",
+              y: "-7vh",
+              rotateY: -13,
+              filter: "blur(18px) brightness(0.55)",
+            }}
+            animate={{
+              opacity: [0, 1, 1],
+              scale: [0.34, 0.92, 1.16],
+              x: ["18vw", "4vw", "-1vw"],
+              y: ["-7vh", "0vh", "5vh"],
+              rotateY: [-13, -4, 0],
+              filter: [
+                "blur(18px) brightness(0.55)",
+                "blur(2px) brightness(0.95)",
+                "blur(0px) brightness(1.08)",
+              ],
+            }}
+            transition={{ duration: 2.8, delay: 0.35, ease: [0.16, 1, 0.3, 1], times: [0, 0.68, 1] }}
+            className="absolute bottom-[3%] right-[-13%] w-[78vw] max-w-6xl select-none drop-shadow-[0_36px_90px_rgba(201,168,76,0.42)]"
+            style={{
+              transformStyle: "preserve-3d",
+              maskImage: "radial-gradient(ellipse at center, black 64%, transparent 96%)",
+              WebkitMaskImage: "radial-gradient(ellipse at center, black 64%, transparent 96%)",
+            }}
+          />
+        </div>
 
         <motion.div
           animate={{ y: [0, 10, 0] }} transition={{ duration: 2.5, repeat: Infinity }}
