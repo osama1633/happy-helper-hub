@@ -85,6 +85,21 @@ function HomePage() {
             </Button>
           </motion.div>
         </div>
+        {/* Hero car emerging from the shadows */}
+        <motion.img
+          src="/hero-car.png"
+          alt=""
+          aria-hidden
+          initial={{ opacity: 0, scale: 1.15, x: 80, filter: "blur(20px)" }}
+          animate={{ opacity: 1, scale: 1, x: 0, filter: "blur(0px)" }}
+          transition={{ duration: 2, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="pointer-events-none absolute right-[-6%] bottom-[6%] w-[75vw] md:w-[62vw] max-w-4xl hidden md:block select-none"
+          style={{
+            maskImage: "radial-gradient(ellipse at center, black 60%, transparent 95%)",
+            WebkitMaskImage: "radial-gradient(ellipse at center, black 60%, transparent 95%)",
+          }}
+        />
+
         <motion.div
           animate={{ y: [0, 10, 0] }} transition={{ duration: 2.5, repeat: Infinity }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 text-primary text-xs tracking-widest"
